@@ -8,6 +8,7 @@ public class BibliotecaApp {
     public static void displayMenu(){
         System.out.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n\n");
         System.out.println("Enter 1: To show a list of books");
+        System.out.println("Enter 0: To quit");
         System.out.println();
     }
 
@@ -31,7 +32,7 @@ public class BibliotecaApp {
         while (!check) {
             try {
                 choice = sc.nextInt();
-                if (choice == 1) {
+                if (choice == 0 || choice == 1) {
                     check = true;
                 }
                 else
@@ -50,8 +51,10 @@ public class BibliotecaApp {
                     System.out.print(element.getBook());
                 }
                 break;
-            default:
+            case 0:
                 java.lang.System.exit(0);
+                break;
+            default:
                 break;
         }
     }
