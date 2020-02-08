@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="466e9302-1a6b-4109-8869-5d062e625df5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../hellotwu" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="466e9302-1a6b-4109-8869-5d062e625df5" name="Default Changelist" comment="Biblio 1.10 - 1.12: Refactored the code, added the functionality for the user to check in a book and added error checking if book is in the wrong library.">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaAppTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/Book.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,12 +32,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.twu.biblioteca" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.BibliotecaApp">
     <configuration name="BibliotecaApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaApp" />
       <module name="biblioteca" />
@@ -43,9 +58,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BibliotecaAppTest.shouldCheckoutBook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaAppTest" />
+      <option name="METHOD_NAME" value="shouldCheckoutBook" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.BibliotecaApp" />
+        <item itemvalue="JUnit.BibliotecaAppTest.shouldCheckoutBook" />
       </list>
     </recent_temporary>
   </component>
@@ -61,12 +93,48 @@
       <updated>1581027469660</updated>
       <workItem from="1581027471017" duration="35000" />
       <workItem from="1581027509525" duration="234000" />
-      <workItem from="1581028877308" duration="2577000" />
+      <workItem from="1581028877308" duration="35767000" />
     </task>
+    <task id="LOCAL-00001" summary="Biblio - 1.1: Welcome message added">
+      <created>1581095325952</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1581095325952</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Biblio 1.2 - 1.5: able to list books, added error checking for invalid input, able to list author and year">
+      <created>1581111348635</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1581111348635</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Biblio - 1.6: Added the feature for the user to quit the program and displays this option in the menu">
+      <created>1581111867330</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1581111867330</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Biblio 1.7 - 1.9: Add the feature for users to checkout a book and shows if the checkout was successful or not.">
+      <created>1581116662708</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1581116662708</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Biblio - 1.1: Welcome message added" />
+    <MESSAGE value="Biblio 1.2 - 1.5: able to list books, added error checking for invalid input, able to list author and year" />
+    <MESSAGE value="Biblio - 1.6: Added the feature for the user to quit the program and displays this option in the menu" />
+    <MESSAGE value="Biblio 1.7 - 1.9: Add the feature for users to checkout a book and shows if the checkout was successful or not." />
+    <option name="LAST_COMMIT_MESSAGE" value="Biblio 1.7 - 1.9: Add the feature for users to checkout a book and shows if the checkout was successful or not." />
   </component>
   <component name="WindowStateProjectService">
     <state x="360" y="224" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581089093953">
@@ -77,30 +145,63 @@
       <screen x="0" y="23" width="1792" height="1042" />
     </state>
     <state x="745" y="439" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1792.1042@0.23.1792.1042" timestamp="1581028912736" />
-    <state x="504" y="262" key="CommitChangelistDialog2" timestamp="1581095056128">
+    <state x="314" y="507" width="1196" height="489" key="CommitChangelistDialog2" timestamp="1581176549954">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="314" y="507" width="1196" height="489" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1581176549954" />
+    <state x="504" y="262" key="CommitChangelistDialog2/0.23.1792.1034@0.23.1792.1034" timestamp="1581116662444" />
+    <state width="1750" height="320" key="GridCell.Tab.0.bottom" timestamp="1581176550046">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="320" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1581176550046" />
+    <state width="1750" height="320" key="GridCell.Tab.0.bottom/0.23.1792.1034@0.23.1792.1034" timestamp="1581134902381" />
+    <state width="1750" height="320" key="GridCell.Tab.0.bottom/0.23.1792.1036@0.23.1792.1036" timestamp="1581135697546" />
+    <state width="1750" height="320" key="GridCell.Tab.0.center" timestamp="1581176550046">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="320" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1581176550046" />
+    <state width="1750" height="320" key="GridCell.Tab.0.center/0.23.1792.1034@0.23.1792.1034" timestamp="1581134902380" />
+    <state width="1750" height="320" key="GridCell.Tab.0.center/0.23.1792.1036@0.23.1792.1036" timestamp="1581135697545" />
+    <state width="1750" height="320" key="GridCell.Tab.0.left" timestamp="1581176550045">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="320" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1581176550045" />
+    <state width="1750" height="320" key="GridCell.Tab.0.left/0.23.1792.1034@0.23.1792.1034" timestamp="1581134902380" />
+    <state width="1750" height="320" key="GridCell.Tab.0.left/0.23.1792.1036@0.23.1792.1036" timestamp="1581135697545" />
+    <state width="1750" height="320" key="GridCell.Tab.0.right" timestamp="1581176550046">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="320" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1581176550046" />
+    <state width="1750" height="320" key="GridCell.Tab.0.right/0.23.1792.1034@0.23.1792.1034" timestamp="1581134902381" />
+    <state width="1750" height="320" key="GridCell.Tab.0.right/0.23.1792.1036@0.23.1792.1036" timestamp="1581135697546" />
+    <state width="1750" height="284" key="GridCell.Tab.1.bottom" timestamp="1581110470238">
       <screen x="0" y="23" width="1792" height="1034" />
     </state>
-    <state x="504" y="262" key="CommitChangelistDialog2/0.23.1792.1034@0.23.1792.1034" timestamp="1581095056128" />
-    <state width="1750" height="284" key="GridCell.Tab.0.bottom" timestamp="1581095100045">
+    <state width="1750" height="284" key="GridCell.Tab.1.bottom/0.23.1792.1034@0.23.1792.1034" timestamp="1581110470238" />
+    <state width="1750" height="284" key="GridCell.Tab.1.center" timestamp="1581110470237">
       <screen x="0" y="23" width="1792" height="1034" />
     </state>
-    <state width="1750" height="284" key="GridCell.Tab.0.bottom/0.23.1792.1034@0.23.1792.1034" timestamp="1581095100045" />
-    <state width="1750" height="284" key="GridCell.Tab.0.center" timestamp="1581095100045">
+    <state width="1750" height="284" key="GridCell.Tab.1.center/0.23.1792.1034@0.23.1792.1034" timestamp="1581110470237" />
+    <state width="1750" height="284" key="GridCell.Tab.1.left" timestamp="1581110470236">
       <screen x="0" y="23" width="1792" height="1034" />
     </state>
-    <state width="1750" height="284" key="GridCell.Tab.0.center/0.23.1792.1034@0.23.1792.1034" timestamp="1581095100045" />
-    <state width="1750" height="284" key="GridCell.Tab.0.left" timestamp="1581095100044">
+    <state width="1750" height="284" key="GridCell.Tab.1.left/0.23.1792.1034@0.23.1792.1034" timestamp="1581110470236" />
+    <state width="1750" height="284" key="GridCell.Tab.1.right" timestamp="1581110470237">
       <screen x="0" y="23" width="1792" height="1034" />
     </state>
-    <state width="1750" height="284" key="GridCell.Tab.0.left/0.23.1792.1034@0.23.1792.1034" timestamp="1581095100044" />
-    <state width="1750" height="284" key="GridCell.Tab.0.right" timestamp="1581095100045">
-      <screen x="0" y="23" width="1792" height="1034" />
-    </state>
-    <state width="1750" height="284" key="GridCell.Tab.0.right/0.23.1792.1034@0.23.1792.1034" timestamp="1581095100045" />
+    <state width="1750" height="284" key="GridCell.Tab.1.right/0.23.1792.1034@0.23.1792.1034" timestamp="1581110470237" />
     <state x="397" y="182" key="SettingsEditor" timestamp="1581027557515">
       <screen x="0" y="23" width="1792" height="1041" />
     </state>
     <state x="397" y="182" key="SettingsEditor/0.23.1792.1041@0.23.1792.1041" timestamp="1581027557515" />
+    <state x="634" y="320" key="extract.method.dialog" timestamp="1581118719431">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="634" y="320" key="extract.method.dialog/0.0.1792.1120@0.0.1792.1120" timestamp="1581118719431" />
+    <state width="600" height="424" key="javadoc.popup" timestamp="1581102987306">
+      <screen x="0" y="23" width="1792" height="1034" />
+    </state>
+    <state width="600" height="424" key="javadoc.popup/0.23.1792.1034@0.23.1792.1034" timestamp="1581102987306" />
     <state x="561" y="251" key="search.everywhere.popup" timestamp="1581027493823">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>

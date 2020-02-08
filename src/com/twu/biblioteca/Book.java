@@ -9,6 +9,7 @@ public class Book {
     private String title;
     private String authorName;
     private String bookYear;
+    private boolean available;
 
 
     //book constructor
@@ -20,6 +21,11 @@ public class Book {
         this.title = title;
         this.authorName = authorName;
         this.bookYear = bookYear;
+        this.available = true;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
     }
 
     public String getBook(){ //change the formatting issue
@@ -30,6 +36,11 @@ public class Book {
     public String getBookTitle(){
         String booktitle = title;
         return booktitle;
+    }
+
+    public boolean getAvailable(){
+        return available;
+
     }
 
 }
