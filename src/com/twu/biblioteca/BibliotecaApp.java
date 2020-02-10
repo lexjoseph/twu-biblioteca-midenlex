@@ -190,6 +190,29 @@ public class BibliotecaApp {
             System.out.println("Sorry please enter your correct information\n");
         }
     }
+
+    public void librarianOption(){
+        for (User element: users){
+            if(account.equals(element.getUsername()) && pass.equals(element.getPassword()) && element.isLibrarian()){
+
+                for (String key : checked.keySet()){
+                    System.out.println("Name: " + key + " | Book: " + checked.get(key));
+                }
+            }
+            else if (account.equals(element.getUsername()) && pass.equals(element.getPassword()) && !element.isLibrarian()){
+                System.out.println("You tried to pull a fast one! Sorry, you're not a librarian\n");
+
+            }
+        }
+    }
+
+    public void showUserInfo(){
+        for (User element: users){
+            if(account.equals(element.getUsername()) && pass.equals(element.getPassword())){
+                element.getInfo();
+            }
+        }
+    }
     public static void main(String[] args) {
 
         BibliotecaApp app = new BibliotecaApp();
@@ -198,8 +221,6 @@ public class BibliotecaApp {
         app.populateUsers();
 
         app.set();
-        //app.sc.nextLine();
-
 
         int choice = 0;
 
@@ -227,7 +248,6 @@ public class BibliotecaApp {
 
             switch (choice) {
                 case 1:
-                    //item = new Book();
                     app.showItemsB();
                     break;
 
@@ -244,7 +264,6 @@ public class BibliotecaApp {
                     break;
 
                 case 5:
-                    //item = new Movie();
                     app.showItemsM();
                     break;
 
@@ -259,30 +278,17 @@ public class BibliotecaApp {
                 case 8:
                     app.checkInM();
                     break;
+
                 case 9: //show user info
-                    for (User element: app.users){
-                        if(app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword())){
-                            element.getInfo();
-                        }
-                    }
+                    app.showUserInfo();
                     break;
+
                 case 10:
-                    for (User element: app.users){
-                        if(app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword()) && element.isLibrarian()){
-
-                            for (String key : app.checked.keySet()){
-                                System.out.println("Name: " + key + " | Book: " + app.checked.get(key));
-                            }
-                        }
-                    else if (app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword()) && !element.isLibrarian()){
-                            System.out.println("You tried to pull a fast one! Sorry, you're not a librarian\n");
-
-                        }
-                    }
+                    app.librarianOption();
                     break;
+
                 case 11: //logout option
                     System.out.println("You have logged out!\n");
-                    //app.sc.reset();
                     app.set();
                     break;
 
