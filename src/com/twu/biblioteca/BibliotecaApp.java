@@ -7,7 +7,18 @@ public class BibliotecaApp {
 
     ArrayList<Book> books = new ArrayList<Book>();
     ArrayList<Movie> movies = new ArrayList<Movie>();
+    ArrayList<User> users = new ArrayList<User>();
+    //HashMap<String, String> checked = new HashMap<String, String>();
     Scanner sc = new Scanner(System.in);
+
+    public void populateUsers(){
+    users.add(new User("111-111", "password1", "one", "one1@gmail.com", "9541111111", false));
+    users.add(new User("222-222", "password2", "two", "two2@gmail.com", "9542222222", true));
+    users.add(new User("333-333", "password3", "three", "three3@gmail.com", "9543333333", false));
+    users.add(new User("444-444", "password4", "four", "four4@gmail.com", "9544444444", true));
+    users.add(new User("555-555", "password5", "five", "five5@gmail.com", "9545555555", false));
+
+    }
 
     public void populateBooks() {
         books.add(new Book("fire", "lex", "1994"));
@@ -33,6 +44,7 @@ public class BibliotecaApp {
         System.out.println("Enter 6: To show the available movies");
         System.out.println("Enter 7: To checkout a movie");
         System.out.println("Enter 8: To check in a movie");
+        System.out.println("Enter 9: To show your information");
         System.out.println("Enter 0: To quit");
         System.out.println();
     }
@@ -143,11 +155,22 @@ public class BibliotecaApp {
     }
     /*============================================*/
 
+    /*-------------------------------------------*/
+
     public static void main(String[] args) {
 
         BibliotecaApp app = new BibliotecaApp();
         app.populateBooks();
         app.populateMovies();
+        app.populateUsers();
+
+        System.out.println("Please enter your library card number");
+        String account = app.sc.nextLine();
+
+        System.out.println("Please enter your password");
+        String pass = app.sc.nextLine();
+        //app.sc.nextLine();
+
 
         int choice = 0;
 
@@ -162,7 +185,7 @@ public class BibliotecaApp {
                 try {
                     choice = app.sc.nextInt();
                     if (choice == 0 || choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice ==5 ||
-                            choice ==6 || choice ==7 || choice ==8) {
+                            choice ==6 || choice ==7 || choice ==8 || choice == 9) {
                         check = true;
                     } else
                         System.out.println("Please select a valid option!");
@@ -206,6 +229,13 @@ public class BibliotecaApp {
 
                 case 8:
                     app.checkInM();
+                    break;
+                case 9: //show user info
+                    for (User element: app.users){
+                        if(account.equals(element.getUsername()) && pass.equals(element.getPassword())){
+                            element.getInfo();
+                        }
+                    }
                     break;
 
                 case 0:
