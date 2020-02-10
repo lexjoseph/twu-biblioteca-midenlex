@@ -184,9 +184,6 @@ public class BibliotecaApp {
 
             for (User element : users) {
                 if (account.equals(element.getUsername()) && pass.equals(element.getPassword())) {
-                    System.out.println("you got it");
-                    // System.out.println(one);
-
                     return;
                 }
             }
