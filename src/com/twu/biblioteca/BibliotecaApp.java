@@ -186,6 +186,15 @@ public class BibliotecaApp {
 
         System.out.println("Please enter your password");
         pass = sc1.nextLine();
+
+        for(User element: users){
+            if(account.equals(element.getUsername()) && pass.equals(element.getPassword())){
+                break;
+            }
+            else
+                System.out.println("Sorry please enter your correct information");
+                set();
+        }
     }
 
     public static void main(String[] args) {
