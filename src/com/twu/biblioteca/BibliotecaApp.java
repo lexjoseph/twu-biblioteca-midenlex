@@ -154,7 +154,7 @@ public class BibliotecaApp {
         for (Book element: books){
             if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable() == false){
                 element.setAvailable(true);
-                checked.values().remove(booktitle);
+                checked.keySet().remove(element.getTitle());
                 System.out.println("Thank you for returning the book\n");
                 return;
             }
@@ -170,7 +170,7 @@ public class BibliotecaApp {
         for (Movie element: movies){
             if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable() == false){
                 element.setAvailable(true);
-                checked.values().remove(booktitle);
+                checked.keySet().remove(element.getTitle());
                 System.out.println("Thank you for returning the movie\n");
                 return;
             }
