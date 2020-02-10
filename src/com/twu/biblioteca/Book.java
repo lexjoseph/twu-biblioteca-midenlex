@@ -1,15 +1,7 @@
 package com.twu.biblioteca;
 
-import java.util.*;
 
-
-
-public class Book {
-
-    private String title;
-    private String authorName;
-    private String bookYear;
-    private boolean available;
+public class Book extends Item{
 
 
     //book constructor
@@ -17,30 +9,12 @@ public class Book {
     }
 
     //book constructor
-    Book(String title, String authorName, String bookYear){
+    Book(String title, String name, String year){
         this.title = title;
-        this.authorName = authorName;
-        this.bookYear = bookYear;
+        this.name = name;
+        this.year = year;
         this.available = true;
     }
 
-    public void setAvailable(boolean available) {
-        this.available = available;
-    }
-
-    public String getBook(){ //change the formatting issue
-        String book = (String.format("%-15s",title) + " | " + String.format("%-15s", authorName) + " | " + String.format("%-4s", bookYear) + "\n");
-        return book;
-    }
-
-    public String getBookTitle(){
-        String booktitle = title;
-        return booktitle;
-    }
-
-    public boolean getAvailable(){
-        return available;
-
-    }
 
 }
