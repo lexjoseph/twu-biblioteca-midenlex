@@ -108,10 +108,10 @@ public class BibliotecaApp {
         }
 
         for(Book element: books){
-            if(element.getTitle().equals(booktitle) && element.getAvailable()) {
+            if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable()) {
                 //books.remove(element);
                 //System.out.println(checked.values());
-                checked.put(name, booktitle);
+                checked.put(element.getTitle(), name);
                 element.setAvailable(false);
                 System.out.println("Thank you! Enjoy the book\n");
                 return;
@@ -124,10 +124,18 @@ public class BibliotecaApp {
         System.out.println("Please enter Movie title to check out\n");
         sc.nextLine();
         String booktitle = sc.nextLine();
+        String name = "";
+
+        for(User element: users){
+            if(element.getUsername().equals(account)){
+                name = element.getName();
+            }
+        }
 
         for(Movie element: movies){
-            if(element.getTitle().equals(booktitle) && element.getAvailable()) {
+            if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable()) {
                 //books.remove(element);
+                checked.put(element.getTitle(), name);
                 element.setAvailable(false);
                 System.out.println("Thank you! Enjoy the movie\n");
                 return;
@@ -144,7 +152,7 @@ public class BibliotecaApp {
         String booktitle = sc.nextLine();
 
         for (Book element: books){
-            if(element.getTitle().equals(booktitle) && element.getAvailable() == false){
+            if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable() == false){
                 element.setAvailable(true);
                 checked.values().remove(booktitle);
                 System.out.println("Thank you for returning the book\n");
@@ -160,8 +168,9 @@ public class BibliotecaApp {
         String booktitle = sc.nextLine();
 
         for (Movie element: movies){
-            if(element.getTitle().equals(booktitle) && element.getAvailable() == false){
+            if(element.getTitle().equalsIgnoreCase(booktitle) && element.getAvailable() == false){
                 element.setAvailable(true);
+                checked.values().remove(booktitle);
                 System.out.println("Thank you for returning the movie\n");
                 return;
             }
@@ -180,7 +189,7 @@ public class BibliotecaApp {
             account = sc1.nextLine();
             System.out.println("Please enter your password");
             pass = sc1.nextLine();
-
+            System.out.println();
 
             for (User element : users) {
                 if (account.equals(element.getUsername()) && pass.equals(element.getPassword())) {
@@ -196,14 +205,15 @@ public class BibliotecaApp {
             if(account.equals(element.getUsername()) && pass.equals(element.getPassword()) && element.isLibrarian()){
 
                 for (String key : checked.keySet()){
-                    System.out.println("Name: " + key + " | Book: " + checked.get(key));
+                    System.out.println("Name: " + checked.get(key) + " | Book: " + key);
                 }
             }
             else if (account.equals(element.getUsername()) && pass.equals(element.getPassword()) && !element.isLibrarian()){
-                System.out.println("You tried to pull a fast one! Sorry, you're not a librarian\n");
+                System.out.println("You tried to pull a fast one! Sorry, you're not a librarian");
 
             }
         }
+        System.out.println();
     }
 
     public void showUserInfo(){

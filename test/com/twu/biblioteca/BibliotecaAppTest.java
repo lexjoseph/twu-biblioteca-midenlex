@@ -17,7 +17,7 @@ public class BibliotecaAppTest {
 
         assertEquals(6, app.getAvailableBooks().size());
 
-        app.checkoutBook();
+        app.checkoutB();
         assertEquals(5, app.getAvailableBooks().size());
     }
 
