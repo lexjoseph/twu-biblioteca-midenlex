@@ -65,13 +65,6 @@ public class BibliotecaApp {
             }
             System.out.println();
         }
-        /*else
-            for (Book elements : books) {
-                System.out.print(elements.getItem() + );
-            }
-            System.out.println();
-
-    }*/
 
     public void showItemsM(){
         for (Movie elements: movies){
@@ -179,24 +172,29 @@ public class BibliotecaApp {
 
     /*-------------------------------------------*/
 
-    public void set(){
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Please enter your library card number");
-        account = sc1.nextLine();
+    public void set() {
 
-        System.out.println("Please enter your password");
-        pass = sc1.nextLine();
+        while (true) {
+            Scanner sc1 = new Scanner(System.in);
+            System.out.println("Please enter your library card number");
+            account = sc1.nextLine();
+            System.out.println("Please enter your password");
+            pass = sc1.nextLine();
 
-        for(User element: users){
-            if(account.equals(element.getUsername()) && pass.equals(element.getPassword())){
-                break;
+
+            for (User element : users) {
+                if (account.equals(element.getUsername()) && pass.equals(element.getPassword())) {
+                    System.out.println("you got it");
+                    // System.out.println(one);
+
+                    return;
+                }
             }
-            else
-                System.out.println("Sorry please enter your correct information");
-                set();
+            System.out.println("Sorry please enter your correct information");
+            System.out.println(account);
+            System.out.println(pass);
         }
     }
-
     public static void main(String[] args) {
 
         BibliotecaApp app = new BibliotecaApp();
