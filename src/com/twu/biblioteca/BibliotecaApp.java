@@ -8,22 +8,24 @@ public class BibliotecaApp {
     ArrayList<Book> books = new ArrayList<Book>();
     ArrayList<Movie> movies = new ArrayList<Movie>();
     ArrayList<User> users = new ArrayList<User>();
-    //HashMap<String, String> checked = new HashMap<String, String>();
+    HashMap<String, String> checked = new HashMap<String, String>();
+    public String account;
+    public String pass;
     Scanner sc = new Scanner(System.in);
 
     public void populateUsers(){
-    users.add(new User("111-111", "password1", "one", "one1@gmail.com", "9541111111", false));
-    users.add(new User("222-222", "password2", "two", "two2@gmail.com", "9542222222", true));
-    users.add(new User("333-333", "password3", "three", "three3@gmail.com", "9543333333", false));
-    users.add(new User("444-444", "password4", "four", "four4@gmail.com", "9544444444", true));
-    users.add(new User("555-555", "password5", "five", "five5@gmail.com", "9545555555", false));
+    users.add(new User("111-111", "password1", "One", "one1@gmail.com", "9541111111", false));
+    users.add(new User("222-222", "password2", "Two", "two2@gmail.com", "9542222222", true));
+    users.add(new User("333-333", "password3", "Three", "three3@gmail.com", "9543333333", false));
+    users.add(new User("444-444", "password4", "Four", "four4@gmail.com", "9544444444", true));
+    users.add(new User("555-555", "password5", "Five", "five5@gmail.com", "9545555555", false));
 
     }
 
     public void populateBooks() {
-        books.add(new Book("fire", "lex", "1994"));
-        books.add(new Book("gintama", "john", "2000"));
-        books.add(new Book("bleach", "ichigo", "1998"));
+        books.add(new Book("Fire", "lex", "1994"));
+        books.add(new Book("Gintama", "john", "2000"));
+        books.add(new Book("Bleach", "ichigo", "1998"));
         books.add(new Book("Moby", "Steve", "2005"));
         books.add(new Book("My hero", "Deku", "2010"));
         books.add(new Book("Tokyo", "Shawn", "2011"));
@@ -45,6 +47,8 @@ public class BibliotecaApp {
         System.out.println("Enter 7: To checkout a movie");
         System.out.println("Enter 8: To check in a movie");
         System.out.println("Enter 9: To show your information");
+        System.out.println("Enter 10: \"Librarian Option:\" See who checked out what");
+        System.out.println("Enter 11: Logout");
         System.out.println("Enter 0: To quit");
         System.out.println();
     }
@@ -54,12 +58,20 @@ public class BibliotecaApp {
     }
 
     /*---------------------------------*/
-    public void showItemsB(){
-        for (Book elements: books){
-            System.out.print(elements.getItem());
+    public void showItemsB() {
+       // if (!status) {
+            for (Book elements : books) {
+                System.out.print(elements.getItem());
+            }
+            System.out.println();
         }
-        System.out.println();
-    }
+        /*else
+            for (Book elements : books) {
+                System.out.print(elements.getItem() + );
+            }
+            System.out.println();
+
+    }*/
 
     public void showItemsM(){
         for (Movie elements: movies){
@@ -94,10 +106,19 @@ public class BibliotecaApp {
         System.out.println("Please enter book title to check out\n");
         sc.nextLine();
         String booktitle = sc.nextLine();
+        String name = "";
+
+        for(User element: users){
+            if(element.getUsername().equals(account)){
+                name = element.getName();
+            }
+        }
 
         for(Book element: books){
             if(element.getTitle().equals(booktitle) && element.getAvailable()) {
                 //books.remove(element);
+                //System.out.println(checked.values());
+                checked.put(name, booktitle);
                 element.setAvailable(false);
                 System.out.println("Thank you! Enjoy the book\n");
                 return;
@@ -132,6 +153,7 @@ public class BibliotecaApp {
         for (Book element: books){
             if(element.getTitle().equals(booktitle) && element.getAvailable() == false){
                 element.setAvailable(true);
+                checked.values().remove(booktitle);
                 System.out.println("Thank you for returning the book\n");
                 return;
             }
@@ -157,6 +179,15 @@ public class BibliotecaApp {
 
     /*-------------------------------------------*/
 
+    public void set(){
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Please enter your library card number");
+        account = sc1.nextLine();
+
+        System.out.println("Please enter your password");
+        pass = sc1.nextLine();
+    }
+
     public static void main(String[] args) {
 
         BibliotecaApp app = new BibliotecaApp();
@@ -164,11 +195,7 @@ public class BibliotecaApp {
         app.populateMovies();
         app.populateUsers();
 
-        System.out.println("Please enter your library card number");
-        String account = app.sc.nextLine();
-
-        System.out.println("Please enter your password");
-        String pass = app.sc.nextLine();
+        app.set();
         //app.sc.nextLine();
 
 
@@ -185,7 +212,7 @@ public class BibliotecaApp {
                 try {
                     choice = app.sc.nextInt();
                     if (choice == 0 || choice == 1 || choice == 2 || choice == 3 || choice == 4 || choice ==5 ||
-                            choice ==6 || choice ==7 || choice ==8 || choice == 9) {
+                            choice ==6 || choice ==7 || choice ==8 || choice == 9 || choice ==10 || choice == 11) {
                         check = true;
                     } else
                         System.out.println("Please select a valid option!");
@@ -232,10 +259,29 @@ public class BibliotecaApp {
                     break;
                 case 9: //show user info
                     for (User element: app.users){
-                        if(account.equals(element.getUsername()) && pass.equals(element.getPassword())){
+                        if(app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword())){
                             element.getInfo();
                         }
                     }
+                    break;
+                case 10:
+                    for (User element: app.users){
+                        if(app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword()) && element.isLibrarian()){
+
+                            for (String key : app.checked.keySet()){
+                                System.out.println("Name: " + key + " | Book: " + app.checked.get(key));
+                            }
+                        }
+                    else if (app.account.equals(element.getUsername()) && app.pass.equals(element.getPassword()) && !element.isLibrarian()){
+                            System.out.println("You tried to pull a fast one! Sorry, you're not a librarian\n");
+
+                        }
+                    }
+                    break;
+                case 11: //logout option
+                    System.out.println("You have logged out!\n");
+                    //app.sc.reset();
+                    app.set();
                     break;
 
                 case 0:
