@@ -187,9 +187,7 @@ public class BibliotecaApp {
                     return;
                 }
             }
-            System.out.println("Sorry please enter your correct information");
-            System.out.println(account);
-            System.out.println(pass);
+            System.out.println("Sorry please enter your correct information\n");
         }
     }
     public static void main(String[] args) {
